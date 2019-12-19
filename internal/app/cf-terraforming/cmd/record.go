@@ -189,7 +189,6 @@ func recordResourceStateBuild(zone cloudflare.Zone, record cloudflare.DNSRecord)
 				ID:                          record.ID,
 				CreatedOn:                   record.CreatedOn.Format(time.RFC3339),
 				DataNum:                     strconv.Itoa(len(data)),
-				Domain:                      record.ZoneName,
 				Hostname:                    record.Name,
 				MetadataNum:                 strconv.Itoa(len(record.Meta.(map[string]interface{}))),
 				MetadataAutoAdded:           strconv.FormatBool(meta["auto_added"].(bool)),

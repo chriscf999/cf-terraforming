@@ -333,7 +333,7 @@ func recordResourceStateBuild(zone cloudflare.Zone, record cloudflare.DNSRecord)
 	}
 
 	r.Primary.Attributes = recordAttributes
-        r = regex.ReplaceAllString(r, "\n")
+        r = strings.Replace(r, "\n\n", "\n", -1)
         fmt.Println(s)
 	return r
 }

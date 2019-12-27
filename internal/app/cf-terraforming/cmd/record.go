@@ -14,7 +14,7 @@ import (
 )
 
 const recordTemplate = `
-resource "cloudflare_record" "{{.Record.Type}}_{{replace .Record.Name "." "_" "*" "_"}}_{{.Record.ID}}" {
+resource "cloudflare_record" "{{.Record.Type}}_{{replace .Record.Name "." "_" replace "*" "_"}}_{{.Record.ID}}" {
     zone_id = "{{.Zone.ID}}"
 {{ if .Zone.Paused}}
     paused = "true"

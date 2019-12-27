@@ -75,7 +75,7 @@ var spectrumApplicationCmd = &cobra.Command{
 					if tfstate {
 						// TODO: Implement state dump
 					} else {
-						spectrumAppParse(app)
+						spectrumAppParse(app, zone)
 					}
 				}
 			}

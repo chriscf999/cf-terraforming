@@ -13,16 +13,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var replacer = strings.NewReplacer(".", "_", "*", "_")
-
 func replacerRecordName() {
-    str := ".Record.Name"
-    str = replacer.Replace(str)
-    fmt.Println(str)
+	r := strings.NewReplacer(".", "_", "*", "_")
 }
 
 const recordTemplate = `
-resource "cloudflare_record" "{{.Record.Type}}_{{replace .Record.Name "." "_"}}_{{.Record.ID}}" {
+resource "cloudflare_record" "{{.Record.Type}}_{{replacer(.Record.Name)}}_{{.Record.ID}}" {
     zone_id = "{{.Zone.ID}}"
 {{ if .Zone.Paused}}
     paused = "true"

@@ -13,6 +13,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+fmt.Println("hello!")
+
 const recordTemplate = `
 resource "cloudflare_record" "{{.Record.Type}}_{{replace .Record.Name "." "_"}}_{{.Record.ID}}" {
     zone_id = "{{.Zone.ID}}"

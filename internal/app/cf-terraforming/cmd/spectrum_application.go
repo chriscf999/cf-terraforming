@@ -3,6 +3,7 @@ package cmd
 import (
 	"os"
 	"strings"
+	"fmt"
 
 	cloudflare "github.com/cloudflare/cloudflare-go"
 
@@ -14,7 +15,7 @@ import (
 
 const spectrumApplicationTemplate = `
 resource "cloudflare_spectrum_application" "spectrum_application_{{.App.ID}}" {
-    zone_id = "{{.zone.ID}}"
+    zone_id = "{{.Zone.ID}}"
     protocol = "{{.App.Protocol}}"
     dns {
         type = "{{.App.DNS.Type}}"

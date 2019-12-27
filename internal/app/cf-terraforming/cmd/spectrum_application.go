@@ -86,6 +86,7 @@ func spectrumAppParse(app cloudflare.SpectrumApplication) {
 	tmpl := template.Must(template.New("script").Funcs(templateFuncMap).Parse(spectrumApplicationTemplate))
 	tmpl.Execute(os.Stdout,
 		struct {
+			Zone cloudflare.Zone
 			App cloudflare.SpectrumApplication
 		}{
 			App: app,

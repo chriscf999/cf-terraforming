@@ -3,7 +3,6 @@ package cmd
 import (
 	"os"
 	"strings"
-	"fmt"
 
 	cloudflare "github.com/cloudflare/cloudflare-go"
 
@@ -90,5 +89,6 @@ func spectrumAppParse(app cloudflare.SpectrumApplication) {
 			App cloudflare.SpectrumApplication
 		}{
 			App: app,
+			Zone: zone,
 		})
 }

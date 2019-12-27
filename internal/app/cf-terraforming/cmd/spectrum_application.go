@@ -69,6 +69,7 @@ var spectrumApplicationCmd = &cobra.Command{
 
 					log.WithFields(logrus.Fields{
 						"ID": app.ID,
+						"ZID": zone.ID,
 					}).Debug("Processing spectrum app")
 
 					if tfstate {

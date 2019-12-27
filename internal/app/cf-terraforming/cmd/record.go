@@ -18,7 +18,7 @@ func replacerRecordName() {
 }
 
 const recordTemplate = `
-resource "cloudflare_record" "{{.Record.Type}}_{{replacer(.Record.Name)}}_{{.Record.ID}}" {
+resource "cloudflare_record" "{{.Record.Type}}_{{r(.Record.Name)}}_{{.Record.ID}}" {
     zone_id = "{{.Zone.ID}}"
 {{ if .Zone.Paused}}
     paused = "true"

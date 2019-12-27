@@ -159,7 +159,7 @@ func recordParse(zone cloudflare.Zone, record cloudflare.DNSRecord) {
 	tmpl.Execute(os.Stdout,
 		struct {
 			Zone             cloudflare.Zone
-			Record           replacerRecordName(cloudflare.DNSRecord)
+			Record           fmt.Println(replacerRecordName.Replace(cloudflare.DNSRecord))
 			IsValueTypeField bool
 			IsDataTypeField  bool
 		}{

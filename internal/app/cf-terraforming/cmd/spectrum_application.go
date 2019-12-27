@@ -14,7 +14,7 @@ import (
 
 const spectrumApplicationTemplate = `
 resource "cloudflare_spectrum_application" "spectrum_application_{{.App.ID}}" {
-    zone_id = "{{zone.ID}}"
+    zone_id = "{{.zone.ID}}"
     protocol = "{{.App.Protocol}}"
     dns {
         type = "{{.App.DNS.Type}}"

@@ -13,14 +13,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func replacerTester() {
-    variable := "var"
-    fmt.Println(variable)
-    fmt.Printf("%#v\n", variable)
-    header := map[string]string{"content-type": "text/plain"}
-    fmt.Println(header)
-    fmt.Printf("%#v\n", header)
-}
+variable := "var"
+fmt.Println(variable)
+
 
 const recordTemplate = `
 resource "cloudflare_record" "{{.Record.Type}}_{{replace .Record.Name "." "_"}}_{{.Record.ID}}" {

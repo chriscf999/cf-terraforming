@@ -16,7 +16,7 @@ import (
 var replacer = strings.NewReplacer(".", "_", "*", "_")
 
 func replacerRecordName() {
-    str := .Record.Name
+    str := ".Record.Name"
     str = replacer.Replace(str)
     fmt.Println(str)
 }

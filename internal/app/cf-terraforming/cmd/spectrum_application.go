@@ -91,6 +91,5 @@ func spectrumAppParse(app cloudflare.SpectrumApplication) {
 			App cloudflare.SpectrumApplication
 		}{
 			App: app,
-			Zone: zone,
 		})
 }

@@ -154,7 +154,6 @@ var recordCmd = &cobra.Command{
 }
 
 func recordParse(zone cloudflare.Zone, record cloudflare.DNSRecord) {
-	name := r.Type + "_" + strings.ReplaceAll(r.Name, "*", "wild") + "_" + r.ID
 	tmpl := template.Must(template.New("record").Funcs(templateFuncMap).Parse(recordTemplate))
 	tmpl.Execute(os.Stdout,
 		struct {

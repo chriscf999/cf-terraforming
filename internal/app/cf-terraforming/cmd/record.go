@@ -13,10 +13,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-variable := "var"
-fmt.Println(variable)
-
-
 const recordTemplate = `
 resource "cloudflare_record" "{{.Record.Type}}_{{replace .Record.Name "." "_"}}_{{.Record.ID}}" {
     zone_id = "{{.Zone.ID}}"
@@ -159,10 +155,11 @@ var recordCmd = &cobra.Command{
 
 func recordParse(zone cloudflare.Zone, record cloudflare.DNSRecord) {
 	tmpl := template.Must(template.New("record").Funcs(templateFuncMap).Parse(recordTemplate))
+	replacerRecordName := strings.NewReplacer(".", "_", "*", "wildcard")
 	tmpl.Execute(os.Stdout,
 		struct {
 			Zone             cloudflare.Zone
-			Record           cloudflare.DNSRecord
+			Record           replacerRecordName(cloudflare.DNSRecord)
 			IsValueTypeField bool
 			IsDataTypeField  bool
 		}{
